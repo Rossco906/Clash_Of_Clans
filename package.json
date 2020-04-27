@@ -1,0 +1,23 @@
+{
+  "name": "Clash_Of_Clans",
+  "version": "1.0.0",
+  "description": "Integrating the CoC API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rossco906/Clash_Of_Clans.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rossco906/Clash_Of_Clans/issues"
+  },
+  "homepage": "https://github.com/Rossco906/Clash_Of_Clans#readme",
+  "devDependencies": {
+    "firebase-tools": "^8.2.0"
+  }
+}
