@@ -14,6 +14,8 @@ def format_server_time():
 @app.route('/')
 def index():
     context = { 'server_time': format_server_time() }
+    ip = requests.get('https://api.ipify.org').text
+    context["ipAdd"] = ip
     # 1 Create the template given the context.
     template = render_template('index.html', context=context)
     # 2 Create a response with the template.
@@ -34,7 +36,7 @@ def clanData():
         # 2PJQP2C2Q - farruhk
     url = f"https://api.clashofclans.com/v1/clans/%23{clanNo}"
     headers = {
-        "authorization" : "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjYyZTdmMTY0LWU2MzUtNDcwOS1hMTRmLWY2ZjVhNTUzNDk1ZSIsImlhdCI6MTU4Nzk5NzMyNSwic3ViIjoiZGV2ZWxvcGVyL2ZkOTVlNmQ1LTVjMTMtNDc0OC01Mzc3LWY5ZmE0YTI3YzZhMSIsInNjb3BlcyI6WyJjbGFzaCJdLCJsaW1pdHMiOlt7InRpZXIiOiJkZXZlbG9wZXIvc2lsdmVyIiwidHlwZSI6InRocm90dGxpbmcifSx7ImNpZHJzIjpbIjgyLjY5LjEzLjEwIiwiOTIuMjM3LjE1Ni43MSJdLCJ0eXBlIjoiY2xpZW50In1dfQ.FvOyYnbheG76-xpOLZXu1nGd5WdWhfwgnORpT3jUaUNDOLlsE5yjh6fFl6C_D3-bMpcxNX5i-L9fbmYFfnfDqQ"
+        "authorization" : "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjY1YmQxMDEyLTQ2ZTMtNGU2OC04MGUyLTE4ZGU0N2NhZDcxMiIsImlhdCI6MTU4ODA5OTgzMiwic3ViIjoiZGV2ZWxvcGVyL2ZkOTVlNmQ1LTVjMTMtNDc0OC01Mzc3LWY5ZmE0YTI3YzZhMSIsInNjb3BlcyI6WyJjbGFzaCJdLCJsaW1pdHMiOlt7InRpZXIiOiJkZXZlbG9wZXIvc2lsdmVyIiwidHlwZSI6InRocm90dGxpbmcifSx7ImNpZHJzIjpbIjkyLjIzNy4xNTYuNzEiLCI4Mi42OS4xMy4xMCIsIjM1LjIwMy4yNTEuNDMiXSwidHlwZSI6ImNsaWVudCJ9XX0.IN-dBo1KySkY2ANDeH1dXGSCyYvGUTIl7dxEq9a9grctYLh6ZMKQ-6golhDQi3zSbOETuiZpck3N_z1udOmyDg"
         }
 
     json = requests.get(url, headers=headers).json()
