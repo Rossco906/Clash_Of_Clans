@@ -23,7 +23,7 @@ def index():
     return response
 
 @app.route("/home", methods=['GET', 'POST'])
-def index():
+def home():
     return render_template('home.html')
 
 @app.route("/clandata", methods=['GET', 'POST'])
@@ -56,6 +56,6 @@ def clanData():
         members.append(memberJson)
         # print(memberJson)
     return render_template('clan.html', members=members, clanName = clan )
-    
+
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))
